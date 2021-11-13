@@ -1,0 +1,15 @@
+{
+    "baseUrl": "https://www.pecodesoftware.com",
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions" :{
+        "reporterEnabled": "mochawesome",
+        "mochasomeReporterOptions": {
+            "reportDir": "cypress/reports/mocha",
+            "quite": true,
+            "owerwrite": false,
+            "html": false,
+            "json": true,
+            "videoCompression": 15
+        }
+    }
+}

@@ -1,0 +1,159 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-13T14:03:35.461Z",
+    "end": "2021-11-13T14:03:40.405Z",
+    "duration": 4944,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1240c8a0-53df-4b1a-8ea5-01c3c5060156",
+      "title": "",
+      "fullFile": "cypress/integration/loginTest_spec.js",
+      "file": "cypress/integration/loginTest_spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "21fe3dcf-2e87-45dd-bca1-9a3dbf3d9410",
+          "title": "Log in",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Check that appropriate error massage appear if log in with invalid credetials",
+              "fullTitle": "Log in Check that appropriate error massage appear if log in with invalid credetials",
+              "timedOut": null,
+              "duration": 2782,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('users.json').as('users');\ncy.visit(\"qa-portal/registerlogin/registerlogin.php\");\nloginPage.userNameField().type(_users.default.username);\nloginPage.userPasswordField().type(_users.default.password);\nloginPage.submitBtn().click();\nloginPage.userNameErrorMass().should($massage => {\n  expect($massage.text()).to.eq('No account found with that username.');\n});",
+              "err": {},
+              "uuid": "393f5752-e1c8-4ba2-b23e-7f7d551df218",
+              "parentUUID": "21fe3dcf-2e87-45dd-bca1-9a3dbf3d9410",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check that appropriate error massage appear if password field is empty",
+              "fullTitle": "Log in Check that appropriate error massage appear if password field is empty",
+              "timedOut": null,
+              "duration": 668,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"qa-portal/registerlogin/registerlogin.php\");\nloginPage.userNameField().type(_users.default.username);\nloginPage.submitBtn().click();\nloginPage.passwordNotEnteredErrorMass().should($massage => {\n  expect($massage.text()).to.eq('Please enter your password.');\n});",
+              "err": {},
+              "uuid": "447f0e8a-72e3-4e57-a133-9d9bae8ffd83",
+              "parentUUID": "21fe3dcf-2e87-45dd-bca1-9a3dbf3d9410",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check that appropriate error massage appear if username field is empty",
+              "fullTitle": "Log in Check that appropriate error massage appear if username field is empty",
+              "timedOut": null,
+              "duration": 765,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"qa-portal/registerlogin/registerlogin.php\");\nloginPage.userPasswordField().type(_users.default.password);\nloginPage.submitBtn().click();\nloginPage.userNameErrorMass().should($massage => {\n  expect($massage.text()).to.eq('Please enter username.');\n});",
+              "err": {},
+              "uuid": "2e469559-be6f-4a40-9452-8f8099eae541",
+              "parentUUID": "21fe3dcf-2e87-45dd-bca1-9a3dbf3d9410",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check that appropriate error massage appear if password and username fields are empty",
+              "fullTitle": "Log in Check that appropriate error massage appear if password and username fields are empty",
+              "timedOut": null,
+              "duration": 648,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"qa-portal/registerlogin/registerlogin.php\");\nloginPage.submitBtn().click();\nloginPage.userNameErrorMass().should($massage => {\n  expect($massage.text()).to.eq('Please enter username.');\n});\nloginPage.passwordNotEnteredErrorMass().should($massage => {\n  expect($massage.text()).to.eq('Please enter your password.');\n});",
+              "err": {},
+              "uuid": "b733083e-edb0-4e22-9722-144a8c520291",
+              "parentUUID": "21fe3dcf-2e87-45dd-bca1-9a3dbf3d9410",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "393f5752-e1c8-4ba2-b23e-7f7d551df218",
+            "447f0e8a-72e3-4e57-a133-9d9bae8ffd83",
+            "2e469559-be6f-4a40-9452-8f8099eae541",
+            "b733083e-edb0-4e22-9722-144a8c520291"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4863,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default"
+      },
+      "version": "6.0.1"
+    }
+  }
+}
