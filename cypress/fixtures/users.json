@@ -4,5 +4,9 @@
     "authorizedUser": {
        "username": "Volodymyr",
        "password": "correctPassword2021"
-    }
+    },
+    "incorrectDataUser": {
+      "username": "ADhdikrvAAgsbADhdikrvAAgsbADhdikrvAAgsbADhdikrvAAgsbADhdikrvAAgsbADhdikrvAAgsbADhdikrvAAgsbADhdikrvAAgsbADhdikrvAAgsbADhdikrvAAgsb" ,
+      "password": "1"
+   }
   }

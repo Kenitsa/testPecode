@@ -6,7 +6,7 @@ const loginPage = new LoginPage();
 
 describe("Log in", () => {
     beforeEach(() => {
-        cy.visit('qa-portal/registerlogin/registerlogin.php')
+       cy.visit('qa-portal/registerlogin/registerlogin.php')
       })
 
     it("Should render username field", () => {
@@ -14,11 +14,11 @@ describe("Log in", () => {
       }); 
 
     it("Should render password field", () => {
-        loginPage.userPasswordField().type(users.password).should("be.visible");
+       loginPage.userPasswordField().type(users.password).should("be.visible");
        });
 
     it("Should render submit button", () => {
-        loginPage.submitBtn().should("be.visible");
+       loginPage.submitBtn().should("be.visible");
        });
 
     it("Check that appropriate error massage appear if log in with invalid credetials", function(){
@@ -36,7 +36,7 @@ describe("Log in", () => {
        loginPage.userNameField().type(users.username)
        loginPage.submitBtn().click()
        loginPage.passwordNotEnteredErrorMass().should(($massage) => {
-           expect($massage.text()).to.eq(errorMesText.passwordErrorMesText)
+            expect($massage.text()).to.eq(errorMesText.passwordErrorMesText)
          })
    })
 
@@ -63,5 +63,27 @@ describe("Log in", () => {
         loginPage.submitBtn().click()
         cy.url()
         .should('eq', 'newUrl')
+    })
+
+    it("Сhecks for an error warning when entering more than the allowable number of characters in the username field", function(){
+        cy.fixture('users.json').as('users')
+        cy.fixture('errorMesText.json').as('errorMesText')
+        loginPage.userNameField().type(users.incorrectDataUser.username)
+        loginPage.userPasswordField().type(users.password)
+        loginPage.submitBtn().click()
+        loginPage.userNameErrorMass().should(($massage) =>{
+             expect($massage.text()).to.eq("Username must be between 3 to 128 characters")
+         })
+    })
+
+    it("check for error when entering an invalid password", function(){
+        cy.fixture('users.json').as('users')
+        cy.fixture('errorMesText.json').as('errorMesText')
+        loginPage.userNameField().type(users.username)
+        loginPage.userPasswordField().type(users.incorrectDataUser.password)
+        loginPage.submitBtn().click()
+        loginPage.userNameErrorMass().should(($massage) =>{
+             expect($massage.text()).to.eq("The password must be at least 6 characters")
+         })
     })
 })
