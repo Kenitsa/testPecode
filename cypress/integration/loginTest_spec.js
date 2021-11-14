@@ -9,23 +9,23 @@ describe("Log in", () => {
        cy.visit('qa-portal/registerlogin/registerlogin.php')
       })
 
-    it("Should render username field", () => {
-       loginPage.userNameField().type(users.username).should("be.visible");
+    it("Checks the username field present on the page", () => {
+       loginPage.userNameField().type(users.authorizedUser.username).should("be.visible");
       }); 
 
-    it("Should render password field", () => {
-       loginPage.userPasswordField().type(users.password).should("be.visible");
+    it("Checks the password field present on the page", () => {
+       loginPage.userPasswordField().type(users.authorizedUser.password).should("be.visible");
        });
 
-    it("Should render submit button", () => {
+    it("Checks the submit button present on the page", () => {
        loginPage.submitBtn().should("be.visible");
        });
 
     it("Check that appropriate error massage appear if log in with invalid credetials", function(){
         cy.fixture('users.json').as('users')
         cy.fixture('errorMesText.json').as('errorMesText')
-        loginPage.userNameField().type(users.username)
-        loginPage.userPasswordField().type(users.password)
+        loginPage.userNameField().type(users.notAuthorized.username)
+        loginPage.userPasswordField().type(users.notAuthorized.password)
         loginPage.submitBtn().click()
         loginPage.userNameErrorMass().should(($massage) =>{
              expect($massage.text()).to.eq(errorMesText.errorInvCredentials)
@@ -33,7 +33,7 @@ describe("Log in", () => {
     })
 
     it("Check that appropriate error massage appear if login with empty password field", function(){
-       loginPage.userNameField().type(users.username)
+       loginPage.userNameField().type(users.notAuthorized.username)
        loginPage.submitBtn().click()
        loginPage.passwordNotEnteredErrorMass().should(($massage) => {
             expect($massage.text()).to.eq(errorMesText.passwordErrorMesText)
@@ -41,7 +41,7 @@ describe("Log in", () => {
    })
 
     it("Check that appropriate error massage appear if login with password and empty username field", function(){
-        loginPage.userPasswordField().type(users.password)
+        loginPage.userPasswordField().type(users.notAuthorized.password)
         loginPage.submitBtn().click()
         loginPage.userNameErrorMass().should(($massage) =>{
             expect($massage.text()).to.eq(errorMesText.usernameErrorMesText)
@@ -70,16 +70,16 @@ describe("Log in", () => {
         loginPage.userPasswordField().type(users.password)
         loginPage.submitBtn().click()
         loginPage.userNameErrorMass().should(($massage) =>{
-             expect($massage.text()).to.eq("Username must be between 3 to 128 characters")
+             expect($massage.text()).to.eq(tooManyCharactersUserError)
          })
     })
 
     it("Check for error when entering an invalid password", function(){
-        loginPage.userNameField().type(users.username)
+        loginPage.userNameField().type(users.authorizedUser.username)
         loginPage.userPasswordField().type(users.incorrectDataUser.password)
         loginPage.submitBtn().click()
         loginPage.userNameErrorMass().should(($massage) =>{
-             expect($massage.text()).to.eq("The password must be at least 6 characters")
+             expect($massage.text()).to.eq(notEnoughPasswordCharacters)
          })
     })
 })

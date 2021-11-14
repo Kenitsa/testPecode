@@ -1,5 +1,7 @@
 {
     "passwordErrorMesText": "Please enter your password.",
     "errorInvCredentials": "No account found with that username.",
-    "usernameErrorMesText": "Please enter username."
+    "usernameErrorMesText": "Please enter username.",
+    "tooManyCharactersUserError": "Username must be between 3 to 128 characters",
+    "notEnoughPasswordCharacters": "The password must be at least 6 characters"
 }

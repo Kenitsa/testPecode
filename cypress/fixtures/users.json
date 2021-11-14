@@ -1,6 +1,9 @@
  {
-    "username": "Ivan",
-    "password": "awesomePassword2021",
+    "notAuthorized": {
+       "username": "Ivan",
+       "password": "awesomePassword2021"
+    },
+
     "authorizedUser": {
        "username": "Volodymyr",
        "password": "correctPassword2021"
