@@ -66,8 +66,6 @@ describe("Log in", () => {
     })
 
     it("Сhecks for an error warning when entering more than the allowable number of characters in the username field", function(){
-        cy.fixture('users.json').as('users')
-        cy.fixture('errorMesText.json').as('errorMesText')
         loginPage.userNameField().type(users.incorrectDataUser.username)
         loginPage.userPasswordField().type(users.password)
         loginPage.submitBtn().click()
@@ -76,9 +74,7 @@ describe("Log in", () => {
          })
     })
 
-    it("check for error when entering an invalid password", function(){
-        cy.fixture('users.json').as('users')
-        cy.fixture('errorMesText.json').as('errorMesText')
+    it("Check for error when entering an invalid password", function(){
         loginPage.userNameField().type(users.username)
         loginPage.userPasswordField().type(users.incorrectDataUser.password)
         loginPage.submitBtn().click()
