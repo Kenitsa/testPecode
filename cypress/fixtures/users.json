@@ -1,4 +1,8 @@
  {
     "username": "Ivan",
-    "password": "awesomePassword2021"
+    "password": "awesomePassword2021",
+    "authorizedUser": {
+       "username": "Volodymyr",
+       "password": "correctPassword2021"
+    }
   }

@@ -22,6 +22,7 @@ class LoginPage {
     passwordNotEnteredErrorMass() {
         return cy.get('input[name="password"] + .help-block')
     }
+
 }
 
 export default LoginPage;

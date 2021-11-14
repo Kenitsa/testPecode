@@ -1,0 +1,5 @@
+{
+    "passwordErrorMesText": "Please enter your password.",
+    "errorInvCredentials": "No account found with that username.",
+    "usernameErrorMesText": "Please enter username."
+}
